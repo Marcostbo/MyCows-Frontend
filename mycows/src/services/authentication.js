@@ -1,3 +1,4 @@
+// Function to login and authenticate
 async function login(username, password) {
     const LOGIN_URL = 'http://127.0.0.1:5000/login';
     const formData = new FormData();
@@ -18,6 +19,7 @@ async function login(username, password) {
     return [data, 200];
 }
 
+// Function to get the logged user through the token
 async function getUser(token) {
     const LOGGED_USER_URL = 'http://127.0.0.1:5000/user';
 

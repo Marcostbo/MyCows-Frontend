@@ -19,13 +19,6 @@
                         </v-text-field>
                     </v-col>
                 </v-row>
-                <v-row v-if="loginError" justify="center">
-                    <v-col cols="9">
-                        <span class="small-text" v-if="loginError">
-                            {{ this.errorMsg }}
-                        </span>
-                    </v-col>
-                </v-row>
                 <v-row justify="center">
                     <v-col cols="9">
                         <v-btn type="submit" color="info" block @click="userLogin">Login</v-btn>
@@ -41,6 +34,14 @@
                 </v-row>
             </v-form>
         </v-sheet>
+        <v-snackbar v-model="loginError" :color="loginErrorColor">
+          {{ errorMsg }}
+          <template v-slot:actions>
+            <v-btn color="white" @click="loginError = false">
+                Fechar
+            </v-btn>
+          </template>
+        </v-snackbar>
     </div>
 </template>
 
@@ -55,7 +56,8 @@ export default {
             password: '',
             show1: false,
             loginError: false,
-            errorMsg: ''
+            errorMsg: '',
+            loginErrorColor: 'red'
         };
     },
     methods: {
