@@ -1,27 +1,27 @@
 <template>
     <div class="d-flex align-center justify-center" style="height: 100vh;  background-color: #2196F3;">
         <v-sheet rounded width="500" height="450" class="mx-auto" color="white">
-            <v-form v-model="valid">
+            <v-form>
                 <h2 class="text-center mt-6">
                     Cadastro
                 </h2>
                 <v-row justify="center" class="mt-6">
                     <v-col cols="9">
-                        <v-text-field v-model="username" :rules="nameRules" :counter="10" label="E-mail" required
+                        <v-text-field v-model="username" :counter="10" label="E-mail" required
                             hide-details>
                         </v-text-field>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="9">
-                        <v-text-field v-model="password" :type="show1 ? 'text' : 'password'" name="input-10-1" label="Senha"
+                        <v-text-field v-model="password" :type="show1 ? 'text' : 'password'" label="Senha"
                             hint="Pelo menos 8 caracteres" @click:append="show1 = !show1">
                         </v-text-field>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="9">
-                        <v-btn type="submit" color="info" block>Login</v-btn>
+                        <v-btn type="submit" color="info" block @click="userLogin">Login</v-btn>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
@@ -39,13 +39,29 @@
 
 <script>
 
+import {login} from '../services/authentication.js'
+
 export default {
     data() {
         return {
             username: '',
             password: '',
-            email: ''
+            show1: false,
+            loginError: false
         };
+    },
+    methods: {
+        async userLogin() {
+            try {
+                const data = await login(this.username, this.password)
+                const token = data.token;
+                
+                localStorage.setItem('Token', token);
+                this.$router.push('/home');
+            } catch(error) {
+                this.loginError = true;
+            }
+        }
     }
 }
 </script>
