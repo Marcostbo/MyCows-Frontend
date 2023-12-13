@@ -37,7 +37,7 @@
         <v-snackbar v-model="loginError" :color="loginErrorColor">
           {{ errorMsg }}
           <template v-slot:actions>
-            <v-btn color="white" @click="loginError = false">
+            <v-btn @click="loginError = false">
                 Fechar
             </v-btn>
           </template>
