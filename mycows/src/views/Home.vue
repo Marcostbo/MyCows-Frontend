@@ -14,9 +14,12 @@ export default {
         }
     },
     created: async function () {
-        const token = localStorage.getItem('Token');
-        this.loggedUser = await getUser(token);
-
+        try {
+            const token = localStorage.getItem('Token');
+            this.loggedUser = await getUser(token);    
+        } catch(error){
+            this.loggedUser = {};
+        }
     }
 }
 

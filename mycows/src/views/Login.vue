@@ -19,6 +19,13 @@
                         </v-text-field>
                     </v-col>
                 </v-row>
+                <v-row v-if="loginError" justify="center">
+                    <v-col cols="9">
+                        <span class="small-text" v-if="loginError">
+                            {{ this.errorMsg }}
+                        </span>
+                    </v-col>
+                </v-row>
                 <v-row justify="center">
                     <v-col cols="9">
                         <v-btn type="submit" color="info" block @click="userLogin">Login</v-btn>
@@ -47,19 +54,26 @@ export default {
             username: '',
             password: '',
             show1: false,
-            loginError: false
+            loginError: false,
+            errorMsg: ''
         };
     },
     methods: {
         async userLogin() {
-            try {
-                const data = await login(this.username, this.password)
+            const [data, status] = await login(this.username, this.password);
+            console.log(status);
+            if (status == 200) {
                 const token = data.token;
-                
                 localStorage.setItem('Token', token);
                 this.$router.push('/home');
-            } catch(error) {
+            }
+            else if (status == 403) {
                 this.loginError = true;
+                this.errorMsg = 'Usuário ou senha incorretos';
+            }
+            else {
+                this.loginError = true;
+                this.errorMsg = 'Erro ao realizar login. Tente novamente mais tarde';
             }
         }
     }

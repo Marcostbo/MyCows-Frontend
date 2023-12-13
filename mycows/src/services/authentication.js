@@ -5,21 +5,17 @@ async function login(username, password) {
     formData.append('email', username);
     formData.append('password', password);
 
-    try {
-        const response = await fetch(LOGIN_URL, {
-          method: 'POST',
-          body: formData,
-        });
+    const response = await fetch(LOGIN_URL, {
+        method: 'POST',
+        body: formData,
+    });
     
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+    if (!response.ok) {
+        return [{}, response.status];
+    }
     
-        const data = await response.json();    
-        return data;
-      } catch (error) {
-        throw error;
-      }
+    const data = await response.json();
+    return [data, 200];
 }
 
 async function getUser(token) {
