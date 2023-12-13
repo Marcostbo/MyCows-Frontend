@@ -5,9 +5,9 @@
                 <h2 class="text-center mt-6">
                     Cadastro
                 </h2>
-                <v-row justify="center">
+                <v-row justify="center" class="mt-6">
                     <v-col cols="9">
-                        <v-text-field v-model="username" :rules="nameRules" :counter="10" label="Usuário" required
+                        <v-text-field v-model="username" :rules="nameRules" :counter="10" label="E-mail" required
                             hide-details>
                         </v-text-field>
                     </v-col>
@@ -21,12 +21,14 @@
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="9">
-                        <a href="#" class="text-body-2 font-weight-regular">Esqueceu a senha?</a>
-                    </v-col>
-                    <v-col cols="9">
                         <v-btn type="submit" color="info" block>Login</v-btn>
                     </v-col>
-                    <v-col cols="9">
+                </v-row>
+                <v-row justify="center">
+                    <v-col cols="4">
+                        <a href="#" class="text-body-2 font-weight-regular">Esqueceu a senha?</a>
+                    </v-col>
+                    <v-col cols="5">
                         <a href="#" class="text-body-2 font-weight-regular">Não tem conta? Cadastre-se</a>
                     </v-col>
                 </v-row>
