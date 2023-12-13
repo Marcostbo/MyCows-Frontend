@@ -1,4 +1,4 @@
-export async function login(username, password) {
+async function login(username, password) {
     const LOGIN_URL = 'http://127.0.0.1:5000/login';
     const formData = new FormData();
 
@@ -21,3 +21,19 @@ export async function login(username, password) {
         throw error;
       }
 }
+
+async function getUser(token) {
+    const LOGGED_USER_URL = 'http://127.0.0.1:5000/user';
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-access-token': token
+        }
+    };
+    const response = await fetch(LOGGED_USER_URL, options);
+    const data = await response.json();
+    return data;
+}
+
+export {login, getUser}
