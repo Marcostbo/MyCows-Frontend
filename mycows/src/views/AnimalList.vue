@@ -5,6 +5,27 @@
             <v-col cols="8" offset="2">
                 <h2>Lista de Animais</h2>
                 <h5>Pàgina para listar, buscar e editar o gado</h5>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="4" offset="2">
+                <v-text-field
+                variant="solo"
+                v-model="animalName" 
+                label="Nome"
+                filled 
+                rounded
+                append-inner-icon="mdi-magnify">
+                </v-text-field>
+            </v-col>
+            <v-col cols="2">
+                <v-btn color="info">
+                    Buscar
+                </v-btn>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="8" offset="2">
                 <v-data-table :items="animalList" :headers="tableHeaders">
                     <template v-slot:item.edit="{ item }">
                         <v-icon @click="editAnimal(item)">mdi-pencil</v-icon>
@@ -24,6 +45,7 @@ export default {
     data() {
         return {
             animalList: [],
+            animalName: '',
             tableHeaders: [
                 {title: 'Nome', value: 'name', sortable: true},
                 {title: 'Nascimento', value: 'birth_date', sortable: true},

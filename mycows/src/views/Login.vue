@@ -7,14 +7,14 @@
                 </h2>
                 <v-row justify="center" class="mt-6">
                     <v-col cols="9">
-                        <v-text-field v-model="username" :counter="10" label="E-mail" required
+                        <v-text-field variant="solo" rounded v-model="username" :counter="10" label="E-mail" required
                             hide-details>
                         </v-text-field>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="9">
-                        <v-text-field v-model="password" :type="show1 ? 'text' : 'password'" label="Senha"
+                        <v-text-field variant="solo" rounded v-model="password" :type="show1 ? 'text' : 'password'" label="Senha"
                             hint="Pelo menos 8 caracteres" @click:append="show1 = !show1">
                         </v-text-field>
                     </v-col>
