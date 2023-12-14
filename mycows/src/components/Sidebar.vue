@@ -30,7 +30,7 @@
                     <v-list-item v-bind="props" prepend-icon="mdi-file-chart-outline" title="Relatórios"></v-list-item>
                 </template>
                 <v-list-item prepend-icon="mdi-ticket-confirmation" title="IMA" value="ima"></v-list-item>
-                <v-list-item prepend-icon="mdi-needle" title="Vacinas" value="vaccine"></v-list-item>
+                <v-list-item prepend-icon="mdi-needle-off" title="Vacinas" value="vaccine"></v-list-item>
                 <v-list-item prepend-icon="mdi-poll" title="Financeiro" value="vaccine"></v-list-item>
             </v-list-group>
             <v-divider></v-divider>
