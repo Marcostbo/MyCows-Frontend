@@ -34,7 +34,7 @@
                 </v-row>
             </v-form>
         </v-sheet>
-        <v-snackbar v-model="loginError" :color="loginErrorColor">
+        <v-snackbar v-model="loginError" :color="loginErrorColor" rounded="pill">
           {{ errorMsg }}
           <template v-slot:actions>
             <v-btn @click="loginError = false">
