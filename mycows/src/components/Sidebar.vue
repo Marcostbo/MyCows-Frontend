@@ -8,12 +8,12 @@
         <v-divider></v-divider>
 
         <v-list density="compact" nav>
-            <v-list-item prepend-icon="mdi-home-analytics" title="Home" value="home"></v-list-item>
+            <v-list-item prepend-icon="mdi-home-analytics" title="Home" value="home" @click="routerPage('home')"></v-list-item>
             <v-list-group value="cow">
                 <template v-slot:activator="{ props }">
                     <v-list-item v-bind="props" prepend-icon="mdi-cow" title="Meu Gado"></v-list-item>
                 </template>
-                <v-list-item prepend-icon="mdi-format-list-bulleted" title="Lista de Animais" value="cow"></v-list-item>
+                <v-list-item prepend-icon="mdi-format-list-bulleted" title="Lista de Animais" value="cow" @click="routerPage('lista-de-animais')"></v-list-item>
                 <v-list-item prepend-icon="mdi-plus" title="Novo Animal" value="cow"></v-list-item>
             </v-list-group>
 
@@ -35,7 +35,7 @@
             </v-list-group>
             <v-divider></v-divider>
             <v-list-item prepend-icon="mdi-cog" title="Configurações" value="config"></v-list-item>
-            <v-list-item prepend-icon="mdi-logout" title="Logout" value="logoff"></v-list-item>
+            <v-list-item prepend-icon="mdi-logout" title="Logout" value="logoff" @click="routerPage('login')"></v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
@@ -55,6 +55,15 @@ export default {
             this.loggedUser = await getUser(token);
         } catch (error) {
             this.loggedUser = {};
+        }
+    },
+    methods: {
+        routerPage(pageName) {
+            this.$router.push(pageName);
+        },
+        logoff() {
+            localStorage.removeItem('Token');
+            routerPage('login');
         }
     }
 }
