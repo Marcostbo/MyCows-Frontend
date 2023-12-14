@@ -19,18 +19,25 @@
                 </v-text-field>
             </v-col>
             <v-col cols="2">
-                <v-btn color="info">
+                <v-btn color="light-blue-darken-3" @click="searchAnimal">
                     Buscar
                 </v-btn>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="8" offset="2">
-                <v-data-table :items="animalList" :headers="tableHeaders">
+                <v-data-table :items="animalShow" :headers="tableHeaders">
                     <template v-slot:item.edit="{ item }">
                         <v-icon @click="editAnimal(item)">mdi-pencil</v-icon>
                     </template>
                 </v-data-table>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col cols="8" offset="2">
+                <v-btn density="comfortable" outlined color="light-blue-darken-3" @click="resetAnimalList">
+                    Resetar
+                </v-btn>
             </v-col>
         </v-row>
     </v-container>
@@ -45,6 +52,7 @@ export default {
     data() {
         return {
             animalList: [],
+            animalShow: [],
             animalName: '',
             tableHeaders: [
                 {title: 'Nome', value: 'name', sortable: true},
@@ -62,11 +70,19 @@ export default {
     created: async function () {
         const token = localStorage.getItem('Token');
         this.animalList = await listAnimals(token);
+        this.animalShow = this.animalList;
     },
     methods: {
         editAnimal(item) {
             console.log('Editing animal:', item);
         },
+        searchAnimal() {
+            console.log(this.animalList);
+            this.animalShow = this.animalList.filter(animal => animal.name === this.animalName);
+        },
+        resetAnimalList() {
+            this.animalShow = this.animalList;
+        }
     },
 }
 </script>

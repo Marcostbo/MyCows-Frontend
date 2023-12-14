@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer color="info">
+    <v-navigation-drawer color="light-blue-darken-3">
         <v-list>
             <v-list-item prepend-icon="mdi-account-cowboy-hat" :title="loggedUser.name" :subtitle="loggedUser.email">
             </v-list-item>
@@ -35,7 +35,7 @@
             </v-list-group>
 
             <v-divider></v-divider>
-            
+
             <v-list-item prepend-icon="mdi-cog" title="Configurações" value="config"></v-list-item>
             <v-list-item prepend-icon="mdi-logout" title="Logout" value="logoff" @click="routerPage('login')"></v-list-item>
         </v-list>
