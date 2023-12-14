@@ -1,17 +1,41 @@
 <template>
     <v-navigation-drawer color="info">
         <v-list>
-            <v-list-item prepend-icon="mdi-account-cowboy-hat" :title="loggedUser.name"
-                :subtitle="loggedUser.email">
+            <v-list-item prepend-icon="mdi-account-cowboy-hat" :title="loggedUser.name" :subtitle="loggedUser.email">
             </v-list-item>
         </v-list>
 
         <v-divider></v-divider>
 
         <v-list density="compact" nav>
-            <v-list-item prepend-icon="mdi-cow" title="Meu Gado" value="myfiles"></v-list-item>
-            <v-list-item prepend-icon="mdi-account-multiple" title="Shared with me" value="shared"></v-list-item>
-            <v-list-item prepend-icon="mdi-file-chart-outline" title="Relatórios" value="starred"></v-list-item>
+            <v-list-item prepend-icon="mdi-home-analytics" title="Home" value="home"></v-list-item>
+            <v-list-group value="cow">
+                <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" prepend-icon="mdi-cow" title="Meu Gado"></v-list-item>
+                </template>
+                <v-list-item prepend-icon="mdi-format-list-bulleted" title="Lista de Animais" value="cow"></v-list-item>
+                <v-list-item prepend-icon="mdi-plus" title="Novo Animal" value="cow"></v-list-item>
+            </v-list-group>
+
+            <v-list-group value="vaccination">
+                <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" prepend-icon="mdi-needle" title="Vacinação"></v-list-item>
+                </template>
+                <v-list-item prepend-icon="mdi-format-list-bulleted" title="Lista de Vacinas" value="vaccinelist"></v-list-item>
+                <v-list-item prepend-icon="mdi-plus" title="Inserir Vacinação" value="newvaccine"></v-list-item>
+            </v-list-group>
+
+            <v-list-group value="report">
+                <template v-slot:activator="{ props }">
+                    <v-list-item v-bind="props" prepend-icon="mdi-file-chart-outline" title="Relatórios"></v-list-item>
+                </template>
+                <v-list-item prepend-icon="mdi-ticket-confirmation" title="IMA" value="ima"></v-list-item>
+                <v-list-item prepend-icon="mdi-needle" title="Vacinas" value="vaccine"></v-list-item>
+                <v-list-item prepend-icon="mdi-poll" title="Financeiro" value="vaccine"></v-list-item>
+            </v-list-group>
+            <v-divider></v-divider>
+            <v-list-item prepend-icon="mdi-cog" title="Configurações" value="config"></v-list-item>
+            <v-list-item prepend-icon="mdi-logout" title="Logout" value="logoff"></v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
