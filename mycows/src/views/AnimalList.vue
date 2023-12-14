@@ -33,6 +33,9 @@
         <v-row>
             <v-col cols="8" offset="2">
                 <v-data-table :items="animalShow" :headers="tableHeaders" elevation=4>
+                    <template v-slot:item.detail="{ item }">
+                        <v-icon @click="editAnimal(item)">mdi-plus-box-multiple-outline</v-icon>
+                    </template>
                     <template v-slot:item.edit="{ item }">
                         <v-icon @click="editAnimal(item)">mdi-pencil</v-icon>
                         <v-icon @click="editAnimal(item)">mdi-delete</v-icon>
@@ -62,12 +65,13 @@ export default {
             animalShow: [],
             animalName: '',
             tableHeaders: [
-                {title: 'Nome', value: 'name', sortable: true},
-                {title: 'Nascimento', value: 'birth_date', sortable: true},
-                {title: 'Sexo', value: 'animal_sex', sortable: true},
-                {title: 'Tipo', value: 'animal_type', sortable: true},
-                {title: 'Origem', value: 'origin', sortable: true},
-                {title: 'Editar', value: 'edit', sortable: false},
+                {title: 'Nome', value: 'name', sortable: false, align: 'center'},
+                {title: 'Nascimento', value: 'birth_date', sortable: false, align: 'center'},
+                {title: 'Sexo', value: 'animal_sex', sortable: false, align: 'center'},
+                {title: 'Tipo', value: 'animal_type', sortable: false, align: 'center'},
+                {title: 'Origem', value: 'origin', sortable: false, align: 'center'},
+                {title: 'Detalhes', value: 'detail', sortable: false, align: 'center'},
+                {title: 'Editar', value: 'edit', sortable: false, align: 'center'},
             ]
         }
     },
