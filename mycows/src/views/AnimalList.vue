@@ -3,8 +3,14 @@
     <v-container>
         <v-row>
             <v-col cols="8" offset="2">
-                <h2>Lista de Animais</h2>
-                <h5>Pàgina para listar, buscar e editar o gado</h5>
+                <v-card
+                    class="mb-2"
+                    width="400"
+                    title="Lista de Animais"
+                    subtitle="Pàgina para listar, buscar e editar o gado"
+                    style="border-left: 4px solid #0277BD;"
+                    elevation=0>
+                </v-card>
             </v-col>
         </v-row>
         <v-row>
@@ -19,16 +25,17 @@
                 </v-text-field>
             </v-col>
             <v-col cols="2">
-                <v-btn color="light-blue-darken-3" @click="searchAnimal">
+                <v-btn class="mt-3" color="light-blue-darken-3" @click="searchAnimal">
                     Buscar
                 </v-btn>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols="8" offset="2">
-                <v-data-table :items="animalShow" :headers="tableHeaders">
+                <v-data-table :items="animalShow" :headers="tableHeaders" elevation=4>
                     <template v-slot:item.edit="{ item }">
                         <v-icon @click="editAnimal(item)">mdi-pencil</v-icon>
+                        <v-icon @click="editAnimal(item)">mdi-delete</v-icon>
                     </template>
                 </v-data-table>
             </v-col>
