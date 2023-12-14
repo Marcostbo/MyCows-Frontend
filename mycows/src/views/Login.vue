@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex align-center justify-center" style="height: 100vh;  background-color: #2196F3;">
-        <v-sheet rounded width="500" height="450" class="mx-auto" color="white">
+        <v-sheet rounded width="500" height="450" class="mx-auto" color="white" elevation=16>
             <v-form>
                 <h2 class="text-center mt-6">
                     Cadastro
