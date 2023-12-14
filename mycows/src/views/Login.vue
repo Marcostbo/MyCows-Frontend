@@ -3,7 +3,7 @@
         <v-sheet rounded width="500" height="450" class="mx-auto" color="white" elevation=16>
             <v-form>
                 <h2 class="text-center mt-6">
-                    Cadastro
+                    Login
                 </h2>
                 <v-row justify="center" class="mt-6">
                     <v-col cols="9">

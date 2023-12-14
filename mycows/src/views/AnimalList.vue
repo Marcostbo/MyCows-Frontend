@@ -81,6 +81,7 @@ export default {
             this.animalShow = this.animalList.filter(animal => animal.name === this.animalName);
         },
         resetAnimalList() {
+            this.animalName = '';
             this.animalShow = this.animalList;
         }
     },
