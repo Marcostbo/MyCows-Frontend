@@ -5,8 +5,8 @@
             <v-col cols="8" offset="2">
                 <h2>Lista de Animais</h2>
                 <h5>Pàgina para listar, buscar e editar o gado</h5>
-                <v-data-table :items="animalList">
-                    <template v-slot:item.actions="{ item }">
+                <v-data-table :items="animalList" :headers="tableHeaders">
+                    <template v-slot:item.edit="{ item }">
                         <v-icon @click="editAnimal(item)">mdi-pencil</v-icon>
                     </template>
                 </v-data-table>
@@ -25,7 +25,13 @@ export default {
         return {
             animalList: [],
             tableHeaders: [
-                {text: 'Nome', value: 'name'},]
+                {title: 'Nome', value: 'name', sortable: true},
+                {title: 'Nascimento', value: 'birth_date', sortable: true},
+                {title: 'Sexo', value: 'animal_sex', sortable: true},
+                {title: 'Tipo', value: 'animal_type', sortable: true},
+                {title: 'Origem', value: 'origin', sortable: true},
+                {title: 'Editar', value: 'edit', sortable: false},
+            ]
         }
     },
     components: {
