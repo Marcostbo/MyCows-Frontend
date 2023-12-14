@@ -33,7 +33,9 @@
                 <v-list-item prepend-icon="mdi-needle-off" title="Vacinas" value="vaccine"></v-list-item>
                 <v-list-item prepend-icon="mdi-poll" title="Financeiro" value="vaccine"></v-list-item>
             </v-list-group>
+
             <v-divider></v-divider>
+            
             <v-list-item prepend-icon="mdi-cog" title="Configurações" value="config"></v-list-item>
             <v-list-item prepend-icon="mdi-logout" title="Logout" value="logoff" @click="routerPage('login')"></v-list-item>
         </v-list>
