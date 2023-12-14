@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "material-design-icons-iconfont": "^6.7.0",
     "vue": "^3.3.10",
     "vue-router": "^4.2.5",
     "vuetify": "^3.4.6"
   },
   "devDependencies": {
+    "@mdi/font": "^7.3.67",
     "@vitejs/plugin-vue": "^4.5.1",
     "vite": "^5.0.5"
   }
