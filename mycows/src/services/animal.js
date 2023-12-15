@@ -12,4 +12,18 @@ async function listAnimals(token) {
     return data;
 }
 
-export {listAnimals}
+
+async function dashboard(token) {
+    const DASHBOARD_URL = 'http://127.0.0.1:5000/dashboard';
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-access-token': token
+        }
+    };
+
+    const response = await fetch(DASHBOARD_URL, options);
+    const data = await response.json();
+    return data
+}
+export {listAnimals, dashboard}
