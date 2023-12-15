@@ -1,21 +1,25 @@
 <template>
     <div>
         <v-row>
-            <v-col>
-                <canvas v-if="dataSex" ref="donutChartSex"></canvas>
+            <v-col cols="6">
+                <v-card title="Gado por gênero" prepend-icon="mdi-gender-male-female">
+                    <canvas v-if="dataSex" ref="donutChartSex"></canvas>
+                </v-card>
             </v-col>
-            <v-col>
-                <canvas v-if="dataType" ref="donutChartType"></canvas>
+            <v-col cols="6">
+                <v-card title="Gado por tipo" prepend-icon="mdi-alpha-t-box">
+                    <canvas v-if="dataType" ref="donutChartType"></canvas>
+                </v-card>
             </v-col>
         </v-row>
     </div>
 </template>
   
 <script>
-import { Chart, ArcElement, DoughnutController } from 'chart.js';
+import { Chart, ArcElement, DoughnutController, Legend, Tooltip } from 'chart.js';
 
 // Register the DoughnutController
-Chart.register(ArcElement, DoughnutController);
+Chart.register(ArcElement, DoughnutController, Legend);
 
 export default {
     props: {
@@ -46,13 +50,28 @@ export default {
                             hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                         }],
                     },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                            },
+                            // tooltip: {
+                            //     callbacks: {
+                            //         label: (tooltipItem, data) => {
+                            //             const dataset = data.datasets[tooltipItem.datasetIndex];
+                            //             const currentValue = dataset.data[tooltipItem.index];
+                            //             return ` ${currentValue} animals`;
+                            //         },
+                            //     },
+                            // }
+                        }
+                    }
                 });
+                Chart.register(Tooltip);
             });
         },
         renderChartType() {
-            console.log("Rendering chart for type");
-            console.log("Data:", this.dataType);
-
             this.$nextTick(() => {
                 const ctx = this.$refs.donutChartType.getContext('2d');
                 new Chart(ctx, {
@@ -65,7 +84,25 @@ export default {
                             hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
                         }],
                     },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: (tooltipItem, data) => {
+                                        const dataset = data.datasets[tooltipItem.datasetIndex];
+                                        const currentValue = dataset.data[tooltipItem.index];
+                                        return ` ${currentValue} animals`;
+                                    },
+                                },
+                            }
+                        }
+                    }
                 });
+                Chart.register(Tooltip);
             });
         },
     },
