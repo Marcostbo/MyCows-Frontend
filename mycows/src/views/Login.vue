@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex align-center justify-center" style="height: 100vh;  background-color: #2196F3;">
+    <div class="d-flex align-center justify-center" style="height: 100vh;  background-color: #0277BD;">
         <v-sheet rounded width="500" height="450" class="mx-auto" color="white" elevation=16>
             <v-form>
                 <h2 class="text-center mt-6">
@@ -21,7 +21,7 @@
                 </v-row>
                 <v-row justify="center">
                     <v-col cols="9">
-                        <v-btn type="submit" color="info" block @click="userLogin">Login</v-btn>
+                        <v-btn type="submit" color="light-blue-darken-3" block @click="userLogin">Login</v-btn>
                     </v-col>
                 </v-row>
                 <v-row justify="center">
