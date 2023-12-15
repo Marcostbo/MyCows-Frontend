@@ -11,7 +11,7 @@
             <v-list-item prepend-icon="mdi-home-analytics" title="Home" value="home" @click="routerPage('home')"></v-list-item>
             <v-list-group value="cow">
                 <template v-slot:activator="{ props }">
-                    <v-list-item v-bind="props" prepend-icon="mdi-cow" title="Meu Gado"></v-list-item>
+                    <v-list-item v-bind="props" prepend-icon="mdi-cow" title="Gado"></v-list-item>
                 </template>
                 <v-list-item prepend-icon="mdi-format-list-bulleted" title="Lista de Animais" value="cow" @click="routerPage('lista-de-animais')"></v-list-item>
                 <v-list-item prepend-icon="mdi-plus" title="Novo Animal" value="cow"></v-list-item>
