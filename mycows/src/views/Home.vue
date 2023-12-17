@@ -2,12 +2,14 @@
     <side-bar></side-bar>
     <v-container>
         <v-row>
-            <v-col cols="4" offset="2">
+            <v-col cols="12" offset="2">
                 <v-card class="mb-2" width="400" title="Dashboard" style="border-left: 4px solid #0277BD;" elevation=0>
                 </v-card>
 
-                <dashboard v-if="dashboardData" :dataSex="dashboardData.animals_by_sex"
-                    :dataType="dashboardData.animals_by_type">
+                <dashboard v-if="dashboardData" 
+                    :dataSex="dashboardData.animals_by_sex"
+                    :dataType="dashboardData.animals_by_type"
+                >
                 </dashboard>
             </v-col>
         </v-row>
