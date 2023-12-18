@@ -81,18 +81,25 @@ export default {
         EditAnimalDialog
     },
     created: async function () {
-        const token = localStorage.getItem('Token');
-        this.animalList = await listAnimals(token);
-        this.animalShow = this.animalList;
+        await this.getAllAnimals();
     },
     methods: {
+        // Get all user's animals from API
+        async getAllAnimals() {
+            const token = localStorage.getItem('Token');
+            this.animalList = await listAnimals(token);
+            this.animalShow = this.animalList;
+        },
         // Edit Animal handlers
         showEditAnimalDialog(item) {
             this.animalDialog = item;
             this.editAnimal = true;
         },
-        closeEditAnimalDialog() {
+        closeEditAnimalDialog(updated) {
             this.editAnimal = false;
+            if (updated) {
+                this.$router.go();
+            }
         },
         // Detail Animal handlers
         showDetailAnimalDialog(item) {
