@@ -33,7 +33,7 @@
                         <v-col>
                             <v-select
                                 v-model="animalEdited.animal_sex"
-                                :items="['Macho', 'Fêmea']"
+                                :items="['Macho', 'Femea']"
                                 label="Gênero"
                             >
                             </v-select>
