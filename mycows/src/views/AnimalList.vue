@@ -36,7 +36,7 @@
         </v-row>
         <v-row>
             <v-col cols="2" offset="9">
-                <v-btn density="comfortable" outlined color="light-blue-darken-3" @click="resetAnimalList">
+                <v-btn prepend-icon="mdi-restart" density="comfortable" outlined color="light-blue-darken-3" @click="resetAnimalList">
                     Reset
                 </v-btn>
             </v-col>

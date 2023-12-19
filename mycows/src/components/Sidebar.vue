@@ -14,7 +14,7 @@
                     <v-list-item v-bind="props" prepend-icon="mdi-cow" title="Gado"></v-list-item>
                 </template>
                 <v-list-item prepend-icon="mdi-format-list-bulleted" title="Lista de Animais" value="cow" @click="routerPage('lista-de-animais')"></v-list-item>
-                <v-list-item prepend-icon="mdi-plus" title="Novo Animal" value="cow"></v-list-item>
+                <v-list-item prepend-icon="mdi-plus" title="Novo Animal" value="cow" @click="routerPage('novo-animal')"></v-list-item>
             </v-list-group>
 
             <v-list-group value="vaccination">
