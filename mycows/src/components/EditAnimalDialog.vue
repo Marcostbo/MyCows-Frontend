@@ -9,6 +9,7 @@
                     <v-row>
                         <v-col>
                             <v-text-field
+                                rounded variant="solo"    
                                 v-model="animalEdited.name"
                                 label="Nome"
                             >
@@ -16,22 +17,25 @@
                         </v-col>
                         <v-col>
                             <v-text-field
+                                rounded variant="solo"
                                 v-model="animalEdited.birth_date"
                                 label="Nascimento"
-                                >
+                            >
                             </v-text-field>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col>
                             <v-text-field
+                                rounded variant="solo"
                                 v-model="animalEdited.origin"
                                 label="Origem"
-                                >
+                            >
                             </v-text-field>
                         </v-col>
                         <v-col>
                             <v-select
+                                rounded variant="solo"
                                 v-model="animalEdited.animal_sex"
                                 :items="['Macho', 'Femea']"
                                 label="Gênero"
@@ -40,6 +44,7 @@
                         </v-col>
                         <v-col>
                             <v-select
+                                rounded variant="solo"
                                 v-model="animalEdited.animal_type"
                                 :items="['Boi', 'Vaca', 'Bezerro', 'Novilha']"
                                 label="Tipo"
