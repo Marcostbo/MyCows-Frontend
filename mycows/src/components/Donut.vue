@@ -28,8 +28,8 @@ export default {
                         labels: this.dataDonut.map(item => item.type),
                         datasets: [{
                             data: this.dataDonut.map(item => item.count),
-                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-                            hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#7FFFD4'],
+                            hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#7FFFD4'],
                             hoverOffset: 4
                         }],
                     },
