@@ -1,6 +1,6 @@
 // Funcion to get the user's animals
 async function listAnimals(token) {
-    const ANIMAL_LIST_URL = 'http://127.0.0.1:5000/get-animals';
+    const ANIMAL_LIST_URL = 'http://127.0.0.1:5000/animals';
     const options = {
         method: 'GET',
         headers: {
@@ -14,7 +14,7 @@ async function listAnimals(token) {
 
 // Function to update animal
 async function updateAnimal(token, animalEdited, changedFields){
-    const ANIMAL_UPDATE_URL = `http://127.0.0.1:5000/update-animal/${animalEdited.id}`;
+    const ANIMAL_UPDATE_URL = `http://127.0.0.1:5000/animal/${animalEdited.id}`;
 
     const formData = new FormData();
     console.log(changedFields.length);
