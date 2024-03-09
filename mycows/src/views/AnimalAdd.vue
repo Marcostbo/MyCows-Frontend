@@ -50,14 +50,16 @@
         </v-row>
         <v-row dense>
             <v-col cols="3" offset="2">
-                    <v-text-field 
+                    <v-text-field
+                    v-model="addAnimalPayload.father_id" 
                     rounded variant="solo" 
                     label="Pai" 
                     append-inner-icon="mdi-card-search-outline"
                     @click:append-inner="addFatherDialog = !addFatherDialog"
                 >
                 </v-text-field>
-                <v-text-field 
+                <v-text-field
+                    v-model="addAnimalPayload.mother_id" 
                     rounded variant="solo" 
                     label="Mãe" 
                     append-inner-icon="mdi-card-search-outline"
@@ -102,7 +104,7 @@
                     <v-row v-if="animalsOptions">
                         <v-data-table :items="animalsOptions" :headers="tableHeaders">
                             <template v-slot:item.addAnimal="{ item }">
-                                <v-icon>mdi-plus</v-icon>
+                                <v-icon @click="addFather(item)">mdi-plus</v-icon>
                             </template>
                         </v-data-table>
                     </v-row>
@@ -135,7 +137,7 @@
                     <v-row v-if="animalsOptions">
                         <v-data-table :items="animalsOptions" :headers="tableHeaders">
                             <template v-slot:item.addAnimal="{ item }">
-                                <v-icon>mdi-plus</v-icon>
+                                <v-icon @click="addMother(item)">mdi-plus</v-icon>
                             </template>
                         </v-data-table>
                     </v-row>
@@ -154,6 +156,8 @@ export default {
     data() {
         return {
             animal: {},
+            addAnimalPayload: {},
+            parents: {},
             animalName: '',
             animalsOptions: [],
             addFatherDialog: false,
@@ -178,6 +182,16 @@ export default {
             };
             const token = localStorage.getItem('Token');
             this.animalsOptions = await listAnimals(token, filters);
+        },
+        addMother(item) {
+            this.addAnimalPayload.mother_id = item.id;
+            this.parents.motherName = item.name;
+            this.addMotherDialog = false;
+        },
+        addFather(item) {
+            this.addAnimalPayload.father_id = item.id;
+            this.parents.fatherName = item.name;
+            this.addFatherDialog = false;
         }
     }
 }
