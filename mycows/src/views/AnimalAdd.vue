@@ -173,8 +173,11 @@ export default {
     },
     methods:{
         async getAnimalsbyGender(gender) {
+            const filters = {
+                name: this.animalName
+            };
             const token = localStorage.getItem('Token');
-            this.animalsOptions = await listAnimals(token);
+            this.animalsOptions = await listAnimals(token, filters);
         }
     }
 }

@@ -1,5 +1,5 @@
 // Funcion to get the user's animals
-async function listAnimals(token) {
+async function listAnimals(token, filters) {
     const ANIMAL_LIST_URL = 'http://127.0.0.1:5000/animals';
     const options = {
         method: 'GET',
@@ -7,7 +7,11 @@ async function listAnimals(token) {
             'x-access-token': token
         }
     };
-    const response = await fetch(ANIMAL_LIST_URL, options);
+
+    const queryParams = new URLSearchParams(filters).toString();
+    const urlWithParams = queryParams ? `${ANIMAL_LIST_URL}?${queryParams}` : ANIMAL_LIST_URL;
+    console.log(urlWithParams);
+    const response = await fetch(urlWithParams, options);
     const data = await response.json();
     return data;
 }
