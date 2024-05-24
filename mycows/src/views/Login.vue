@@ -29,7 +29,7 @@
                         <a href="#" class="custom-link text-body-2 font-weight-regular">Esqueceu a senha?</a>
                     </v-col>
                     <v-col cols="5">
-                        <a href="#" class="custom-link text-body-2 font-weight-regular">Não tem conta? Cadastre-se</a>
+                        <router-link to="/cadastro" class="custom-link text-body-2 font-weight-regular">Não tem conta? Cadastre-se</router-link>
                     </v-col>
                 </v-row>
             </v-form>
@@ -64,6 +64,9 @@ export default {
         };
     },
     methods: {
+        redirectUserRegister() {
+            this.$router.push('/cadastro');
+        },
         async userLogin() {
             const [data, status] = await login(this.username, this.password);
             console.log(status);
