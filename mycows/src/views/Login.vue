@@ -64,9 +64,6 @@ export default {
         };
     },
     methods: {
-        redirectUserRegister() {
-            this.$router.push('/cadastro');
-        },
         async userLogin() {
             const [data, status] = await login(this.username, this.password);
             console.log(status);
